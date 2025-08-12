@@ -4,6 +4,7 @@ import "./globals.css";
 import { homeSEO } from "@/lib/seo";
 import { CRESEROrganizationSchema } from "./components/SEOSchema";
 import GoogleTagManager from "./components/GoogleTagManager";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -50,6 +51,20 @@ export default function RootLayout({
         
         {/* Google Tag Manager */}
         <GoogleTagManager />
+        
+        {/* Google Analytics 4 - Etiqueta directa */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S90YCWHZX9"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-S90YCWHZX9');
+          `}
+        </Script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
