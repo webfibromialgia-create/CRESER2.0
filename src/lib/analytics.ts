@@ -68,7 +68,7 @@ export const trackDonationInterest = (donationType: string) => {
 };
 
 // Configuración de Google Tag Manager
-export const GTM_ID = 'GTM-XXXXXXX'; // Reemplazar con tu ID real de GTM
+export const GTM_ID = 'GTM-KC9MJ4NS'; // ID real de GTM para CRESER
 
 // Configuración de Facebook Pixel
 export const FB_PIXEL_ID = 'XXXXXXXXXX'; // Reemplazar con tu ID real de Facebook Pixel
@@ -111,5 +111,6 @@ declare global {
     gtag: (...args: unknown[]) => void;
     fbq: (...args: unknown[]) => void;
     lintrk: (...args: unknown[]) => void;
+    dataLayer: any[];
   }
 }

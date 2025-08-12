@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { homeSEO } from "@/lib/seo";
 import { CRESEROrganizationSchema } from "./components/SEOSchema";
+import GoogleTagManager from "./components/GoogleTagManager";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,9 @@ export default function RootLayout({
         
         {/* Schema.org estructurado */}
         <CRESEROrganizationSchema />
+        
+        {/* Google Tag Manager */}
+        <GoogleTagManager />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
