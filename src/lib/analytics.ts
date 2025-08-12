@@ -108,8 +108,8 @@ export const initializeAnalytics = () => {
 // Tipos para TypeScript
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    fbq: (...args: any[]) => void;
-    lintrk: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
+    fbq: (...args: unknown[]) => void;
+    lintrk: (...args: unknown[]) => void;
   }
 }

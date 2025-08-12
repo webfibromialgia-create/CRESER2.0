@@ -4,7 +4,7 @@ import { medicalOrganizationSchema, medicalServiceSchema, personSchema, localBus
 
 interface SEOSchemaProps {
   type: 'organization' | 'service' | 'person' | 'business';
-  additionalData?: any;
+  additionalData?: Record<string, unknown>;
 }
 
 export default function SEOSchema({ type, additionalData }: SEOSchemaProps) {
