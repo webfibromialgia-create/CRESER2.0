@@ -3,6 +3,7 @@
 import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X } from 'lucide-react';
 import Particles from './components/Particles';
 import ServiceCard from './components/ServiceCard';
+import ValidatedForm from './components/ValidatedForm';
 
 
 import { useEffect, useState } from 'react';
@@ -230,29 +231,19 @@ export default function Home() {
     window.open(`https://www.google.com/maps/search/${encodedAddress}`, '_blank');
   };
 
-  // Función para manejar el envío del formulario con validación
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // Función para manejar el envío del formulario validado
+  const handleValidatedFormSubmit = async (data: {
+    nombre: string;
+    email: string;
+    telefono: string;
+    tipoConsulta: string;
+    consulta: string;
+    mensaje?: string;
+  }) => {
     setIsLoading(true);
     
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      nombre: formData.get('nombre'),
-      email: formData.get('email'),
-      telefono: formData.get('telefono'),
-      consulta: formData.get('consulta'),
-      mensaje: formData.get('mensaje')
-    };
-    
-    // Validación básica
-    if (!data.nombre || !data.email) {
-      setToast({ message: 'Por favor completa todos los campos requeridos', type: 'error' });
-      setIsLoading(false);
-      return;
-    }
-    
     // Aquí se podría integrar con un backend real
-    console.log('Datos del formulario:', data);
+    console.log('Datos del formulario validado:', data);
     
     // Crear mensaje para WhatsApp con los datos del formulario
     const whatsappMessage = encodeURIComponent(
@@ -260,8 +251,9 @@ export default function Home() {
       `*Nombre:* ${data.nombre}\n` +
       `*Email:* ${data.email}\n` +
       `*Teléfono:* ${data.telefono}\n` +
-      `*Tipo de consulta:* ${data.consulta}\n` +
-      `*Mensaje:* ${data.mensaje}`
+      `*Tipo de consulta:* ${data.tipoConsulta}\n` +
+      `*Consulta:* ${data.consulta}\n` +
+      `*Mensaje adicional:* ${data.mensaje || 'No especificado'}`
     );
     
     // Simulación de envío con feedback
@@ -271,8 +263,6 @@ export default function Home() {
       // Mostrar confirmación con toast
       setToast({ message: 'Formulario enviado exitosamente. Abriendo WhatsApp...', type: 'success' });
       
-      // Limpiar formulario
-      e.currentTarget.reset();
       setIsLoading(false);
     }, 1000);
   };
@@ -294,19 +284,20 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Enhanced Header */}
-      <header className="gradient-primary text-white shadow-2xl sticky top-0 z-50 backdrop-blur-lg bg-opacity-90 border-b border-white/10">
+      <header className="gradient-primary text-white shadow-2xl sticky top-0 z-50 backdrop-blur-lg bg-black/90 border-b border-white/10">
         <div className="container mx-auto px-4 py-2 md:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 md:space-x-6">
               <div className="relative">
-        <Image
+                <Image
                   src="/logo-creser.jpg" 
                   alt="Logo CRESER - Asociación para el Manejo Integral de la Fibromialgia"
-                  width={60}
-                  height={60}
+                  width={80}
+                  height={80}
                   className="md:w-20 md:h-20 rounded-lg shadow-lg hover:scale-110 transition-transform duration-300 cursor-pointer"
-          priority
-                  unoptimized
+                  priority
+                  sizes="(max-width: 768px) 60px, 80px"
+                  quality={90}
                 />
               </div>
               <div>
@@ -2150,66 +2141,10 @@ export default function Home() {
             
             <div className="glass-card p-6 md:p-10 rounded-3xl">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">Solicita Información</h3>
-              <form onSubmit={handleFormSubmit} className="space-y-4 md:space-y-6">
-                {[
-                  { label: "Nombre completo", type: "text", name: "nombre", placeholder: "Tu nombre completo" },
-                  { label: "Correo electrónico", type: "email", name: "email", placeholder: "tu@email.com" },
-                  { label: "Teléfono", type: "tel", name: "telefono", placeholder: "(477) 123-4567" }
-                ].map((field, index) => (
-                  <div key={index}>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2 md:mb-3">{field.label}</label>
-                    <input 
-                      type={field.type}
-                      name={field.name}
-                      required
-                      className="w-full px-4 md:px-6 py-3 md:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm text-sm md:text-base"
-                      placeholder={field.placeholder}
-                    />
-                  </div>
-                ))}
-                
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 md:mb-3">Tipo de consulta</label>
-                  <select 
-                    name="consulta" 
-                    required
-                    className="w-full px-4 md:px-6 py-3 md:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white/50 backdrop-blur-sm text-sm md:text-base"
-                  >
-                    <option value="">Selecciona una opción</option>
-                    <option value="Consulta médica general">Consulta médica general</option>
-                    <option value="Consulta psicológica">Consulta psicológica</option>
-                    <option value="Asesoría nutricional">Asesoría nutricional</option>
-                    <option value="Fisioterapia">Fisioterapia</option>
-                    <option value="Información general">Información general</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 md:mb-3">Mensaje</label>
-                  <textarea 
-                    name="mensaje"
-                    rows={4}
-                    required
-                    className="w-full px-4 md:px-6 py-3 md:py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none bg-white/50 backdrop-blur-sm text-sm md:text-base"
-                    placeholder="Cuéntanos sobre tu situación y cómo podemos ayudarte..."
-                  ></textarea>
-                </div>
-                
-                <button 
-                  type="submit" 
-                  disabled={isLoading}
-                  className="w-full btn-primary text-base md:text-lg py-3 md:py-4 disabled:opacity-75 disabled:cursor-not-allowed"
-                >
-                  <span className="flex items-center justify-center space-x-2">
-                    {isLoading ? (
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    ) : (
-                      <Phone className="w-4 md:w-5 h-4 md:h-5" />
-                    )}
-                    <span>{isLoading ? 'Enviando...' : 'Solicitar Información'}</span>
-                  </span>
-                </button>
-              </form>
+              <ValidatedForm 
+                onSubmit={handleValidatedFormSubmit}
+                isLoading={isLoading}
+              />
             </div>
           </div>
         </div>
