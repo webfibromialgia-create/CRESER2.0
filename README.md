@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🩺 CRESER - Asociación Fibromialgia
 
-## Getting Started
+## 📋 Descripción
+Sitio web oficial de la Asociación para el Manejo Integral y Preventivo de la Fibromialgia y Fatiga Crónica CRESER A.C. Plataforma informativa que conecta a pacientes con servicios especializados en el tratamiento de fibromialgia.
 
-First, run the development server:
+## 🌟 Características Principales
+- **Información Médica Especializada**: Servicios integrales para el manejo de fibromialgia
+- **Galería Interactiva**: Visualización de personal médico y especialistas
+- **Formularios de Contacto**: Comunicación directa con el equipo de CRESER
+- **Navegación Intuitiva**: Estructura clara y fácil de usar
+- **Diseño Responsivo**: Optimizado para todos los dispositivos
+- **Integración WhatsApp**: Contacto directo para consultas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🏥 Servicios Informados
+- Medicina especializada en fibromialgia
+- Psicoterapia individual y de pareja
+- Psicoterapia infantil y para adultos mayores
+- Terapia psico-tanatológica
+- Arte terapia
+- Atención a personal médico
+- Servicios de apoyo integral
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📍 Ubicación
+**CRESER A.C.**  
+Paseo de las Águilas No. 95  
+Col. San Isidro de Jerez  
+León, Guanajuato, México
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📞 Contacto
+- **Teléfono Principal**: (477) 412-5698
+- **Teléfono Secundario**: (477) 132-6835
+- **WhatsApp**: Disponible para consultas
+- **Horarios**: Lunes a Viernes 9:00 AM - 6:00 PM, Sábados 9:00 AM - 2:00 PM
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Misión
+Brindar herramientas terapéuticas necesarias para afrontar de manera favorable la fibromialgia, promoviendo un manejo efectivo a través de tratamientos personalizados y un enfoque integral bio-psicológico-social.
 
-## Learn More
+## 🌟 Visión
+Ser un centro de atención que contribuya a mejorar la calidad de vida de los pacientes con fibromialgia y sus familias, a través de la información, el re-aprendizaje y la contención.
 
-To learn more about Next.js, take a look at the following resources:
+## 💎 Valores
+- **Respeto**: Valoramos la dignidad y autonomía de cada persona
+- **Compromiso**: Dedicación constante hacia el bienestar de nuestros pacientes
+- **Profesionalismo**: Excelencia en todos nuestros servicios y atención
+- **Responsabilidad**: Cumplimiento ético de nuestras obligaciones hacia la comunidad
+- **Atención Personalizada**: Tratamiento individualizado según las necesidades únicas
+- **Humanidad**: Compasión y empatía en cada interacción
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏛️ Organización
+CRESER A.C. es una organización de la sociedad civil (OSC) dedicada al manejo integral de la fibromialgia, operando bajo los más altos estándares de calidad y ética médica.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Este sitio web está diseñado para proporcionar información y facilitar el contacto con los servicios especializados de CRESER A.C.*
