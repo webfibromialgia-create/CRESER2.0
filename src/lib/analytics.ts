@@ -111,6 +111,6 @@ declare global {
     gtag: (...args: unknown[]) => void;
     fbq: (...args: unknown[]) => void;
     lintrk: (...args: unknown[]) => void;
-    dataLayer: any[];
+    dataLayer: Record<string, unknown>[];
   }
 }
