@@ -1,5 +1,5 @@
 // Configuración de Google Analytics y herramientas de seguimiento
-export const GA_TRACKING_ID = 'G-XXXXXXXXXX'; // Reemplazar con tu ID real de Google Analytics
+export const GA_TRACKING_ID = 'G-S90YCWHZX9'; // ID real de Google Analytics 4 para CRESER
 
 // Google Analytics 4
 export const pageview = (url: string) => {
