@@ -1922,21 +1922,21 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-6 lg:gap-12">
               <div className="space-y-6">
-                <div className="bg-red-50 p-8 rounded-2xl border-l-4 border-red-500">
-                  <h4 className="text-2xl font-bold text-red-800 mb-4">¿Qué es una Crisis?</h4>
-                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                <div className="bg-red-50 p-4 md:p-6 lg:p-8 rounded-2xl border-l-4 border-red-500">
+                  <h4 className="text-xl md:text-2xl font-bold text-red-800 mb-3 md:mb-4">¿Qué es una Crisis?</h4>
+                  <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6 leading-relaxed">
                     Es el empeoramiento súbito e intenso de los signos y síntomas del padecimiento, 
                     generando un estado de vulnerabilidad emocional y física.
                   </p>
                   
-                  <h5 className="font-bold text-red-700 text-lg mb-4">Síntomas Asociados:</h5>
-                  <div className="grid grid-cols-2 gap-3">
+                  <h5 className="font-bold text-red-700 text-base md:text-lg mb-3 md:mb-4">Síntomas Asociados:</h5>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                     {['Miedo intenso', 'Confusión mental', 'Enojo', 'Sensación de impotencia', 'Vulnerabilidad extrema'].map((symptom, index) => (
-                      <div key={index} className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow-sm">
-                        <div className="w-3 h-3 bg-red-500 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-700 font-medium">{symptom}</span>
+                      <div key={index} className="flex items-center space-x-2 md:space-x-3 p-2 md:p-3 bg-white rounded-lg shadow-sm">
+                        <div className="w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700 font-medium text-sm md:text-base break-words">{symptom}</span>
                       </div>
                     ))}
                   </div>
@@ -1944,9 +1944,9 @@ export default function Home() {
               </div>
               
               <div className="space-y-4">
-                <div className="bg-green-50 p-8 rounded-2xl border-l-4 border-green-500">
-                  <h4 className="text-2xl font-bold text-green-800 mb-6">Protocolo de Manejo:</h4>
-                  <div className="space-y-4">
+                <div className="bg-green-50 p-4 md:p-6 lg:p-8 rounded-2xl border-l-4 border-green-500">
+                  <h4 className="text-xl md:text-2xl font-bold text-green-800 mb-4 md:mb-6">Protocolo de Manejo:</h4>
+                  <div className="space-y-3 md:space-y-4">
                     {[
                       "1. Identifica los factores desencadenantes",
                       "2. PARA. Prioriza únicamente actividades esenciales",
@@ -1957,11 +1957,11 @@ export default function Home() {
                       "7. Modifica temporalmente tu alimentación",
                       "8. Practica escucha activa de tu cuerpo"
                     ].map((step, index) => (
-                      <div key={index} className="flex items-start space-x-4 p-4 bg-white rounded-lg shadow-sm hover-lift">
-                        <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 mt-1">
+                      <div key={index} className="flex items-start space-x-2 md:space-x-4 p-3 md:p-4 bg-white rounded-lg shadow-sm hover-lift">
+                        <div className="w-6 h-6 md:w-8 md:h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0 mt-0.5 md:mt-1">
                           {index + 1}
                         </div>
-                        <span className="text-gray-700 font-medium">{step.substring(2)}</span>
+                        <span className="text-gray-700 font-medium text-sm md:text-base break-words leading-relaxed">{step.substring(2)}</span>
                       </div>
                     ))}
                   </div>
@@ -2252,10 +2252,6 @@ export default function Home() {
                 <Shield className="w-4 h-4" />
                 <span>Política de Privacidad</span>
               </button>
-              <button onClick={handleEmail} className="hover:text-yellow-300 transition-colors flex items-center space-x-2">
-                <BookOpen className="w-4 h-4" />
-                <span>Términos de Uso</span>
-              </button>
               <button onClick={handleLocation} className="hover:text-yellow-300 transition-colors flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
                 <span>Mapa del Sitio</span>
@@ -2264,7 +2260,7 @@ export default function Home() {
             
             <div className="border-t border-white/20 pt-8">
               <p className="text-sm text-blue-200">
-                © 2024 CRESER A.C. Todos los derechos reservados.
+                © 2025 CRESER A.C. Todos los derechos reservados.
               </p>
             </div>
           </div>
