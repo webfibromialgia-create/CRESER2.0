@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X, Youtube, Facebook, MessageCircle } from 'lucide-react';
+import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X, Youtube, Facebook, MessageCircle, Play, ExternalLink, Quote } from 'lucide-react';
 import Particles from './components/Particles';
 import ServiceCard from './components/ServiceCard';
 import ValidatedForm from './components/ValidatedForm';
@@ -98,6 +98,13 @@ export default function Home() {
       setToast({ message: `Abriendo ${platform}...`, type: 'success' });
       setTimeout(() => setToast(null), 2000);
     }
+  };
+
+  // Función para abrir testimonios
+  const handleTestimonio = (url: string) => {
+    window.open(url, '_blank');
+    setToast({ message: 'Abriendo testimonio...', type: 'success' });
+    setTimeout(() => setToast(null), 2000);
   };
 
   // Función para donaciones con mensaje personalizado
@@ -1975,6 +1982,139 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonios de Pacientes */}
+      <section id="testimonios" className="py-24 bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/30 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full mb-6">
+              <Quote className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              Testimonios de Nuestros Pacientes
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Historias reales de transformación y esperanza. Conoce las experiencias de quienes han encontrado alivio y mejora en su calidad de vida.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* TikTok Testimonios */}
+            {[
+              { url: 'https://vt.tiktok.com/ZSkKAaRCB/', title: 'Testimonio de Recuperación', description: 'Paciente comparte su experiencia de mejora' },
+              { url: 'https://vt.tiktok.com/ZSkEE7EW8/', title: 'Proceso de Tratamiento', description: 'Cómo el tratamiento cambió su vida' },
+              { url: 'https://vt.tiktok.com/ZSBJuBN7r/', title: 'Antes y Después', description: 'Transformación notable en su bienestar' },
+              { url: 'https://vt.tiktok.com/ZSBdjnK8m/', title: 'Calidad de Vida', description: 'Mejora significativa en actividades diarias' },
+              { url: 'https://vt.tiktok.com/ZSBd6dc9g/', title: 'Esperanza Renovada', description: 'Encontrando nuevas posibilidades' },
+              { url: 'https://vt.tiktok.com/ZSBBAMdL8/', title: 'Apoyo Integral', description: 'La importancia del equipo multidisciplinario' },
+              { url: 'https://vt.tiktok.com/ZSBQGeWXU/', title: 'Vida Activa', description: 'Regresando a las actividades que ama' },
+              { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
+            ].map((testimonio, index) => (
+              <div key={index} className="group">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105">
+                  {/* Thumbnail simulado para TikTok */}
+                  <div className="relative h-64 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
+                        <Play className="w-8 h-8 text-white ml-1" />
+                      </div>
+                      <div className="flex items-center justify-center space-x-2 mb-2">
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.05-2.83-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79-.06-3.57-.04-5.36z"/>
+                        </svg>
+                        <span className="text-sm font-semibold">TikTok</span>
+                      </div>
+                      <p className="text-xs opacity-90">@creserfibromialgia</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors duration-300">
+                      {testimonio.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {testimonio.description}
+                    </p>
+                    <button
+                      onClick={() => handleTestimonio(testimonio.url)}
+                      className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-lg"
+                    >
+                      <Play className="w-5 h-5" />
+                      <span>Ver Testimonio</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Facebook Testimonios */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { url: 'https://www.facebook.com/share/v/16owsbESHz/', title: 'Experiencia en Facebook', description: 'Testimonio compartido en nuestra página oficial' },
+              { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
+            ].map((testimonio, index) => (
+              <div key={index} className="group">
+                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105">
+                  {/* Thumbnail simulado para Facebook */}
+                  <div className="relative h-64 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/20"></div>
+                    <div className="relative z-10 text-center text-white">
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
+                        <Play className="w-8 h-8 text-white ml-1" />
+                      </div>
+                      <div className="flex items-center justify-center space-x-2 mb-2">
+                        <Facebook className="w-6 h-6" />
+                        <span className="text-sm font-semibold">Facebook</span>
+                      </div>
+                      <p className="text-xs opacity-90">CRESER Fibromialgia</p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                      {testimonio.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {testimonio.description}
+                    </p>
+                    <button
+                      onClick={() => handleTestimonio(testimonio.url)}
+                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-lg"
+                    >
+                      <Play className="w-5 h-5" />
+                      <span>Ver Testimonio</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Llamada a la acción */}
+          <div className="text-center mt-16">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-100">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                ¿Quieres compartir tu historia?
+              </h3>
+              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+                Tu testimonio puede inspirar a otros pacientes. Comparte tu experiencia y ayuda a crear una comunidad de apoyo y esperanza.
+              </p>
+              <button
+                onClick={handleWhatsApp}
+                className="bg-gradient-to-r from-green-500 to-teal-600 text-white py-3 px-8 rounded-xl font-semibold hover:from-green-600 hover:to-teal-700 transition-all duration-300 flex items-center justify-center space-x-2 mx-auto"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Contactar para Testimonio</span>
+              </button>
             </div>
           </div>
         </div>
