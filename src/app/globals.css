@@ -295,6 +295,11 @@
     transform: scale(1.02);
   }
 
+  /* Height utilities */
+  .h-76 {
+    height: 19rem; /* 304px */
+  }
+
   /* Line clamp utilities */
   .line-clamp-1 {
     overflow: hidden;
