@@ -290,6 +290,11 @@
     transition-duration: var(--animate-duration-fast);
   }
 
+  /* Scale utilities */
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
   /* Line clamp utilities */
   .line-clamp-1 {
     overflow: hidden;

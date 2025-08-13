@@ -2088,9 +2088,9 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden py-4">
               <div 
-                className="flex space-x-4 transition-transform duration-500 ease-out"
+                className="flex space-x-4 transition-transform duration-500 ease-out px-4"
                 style={{ transform: `translateX(-${tiktokScrollPosition}px)` }}
               >
                 {[
@@ -2104,7 +2104,7 @@ export default function Home() {
                   { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105 h-72">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-102 h-72">
                       {/* Thumbnail compacto para TikTok */}
                       <div className="relative h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -2168,9 +2168,9 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden py-4">
               <div 
-                className="flex space-x-4 transition-transform duration-500 ease-out"
+                className="flex space-x-4 transition-transform duration-500 ease-out px-4"
                 style={{ transform: `translateX(-${facebookScrollPosition}px)` }}
               >
                 {[
@@ -2178,7 +2178,7 @@ export default function Home() {
                   { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105 h-72">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-102 h-72">
                       {/* Thumbnail compacto para Facebook */}
                       <div className="relative h-48 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
