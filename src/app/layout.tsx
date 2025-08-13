@@ -49,6 +49,20 @@ export default function RootLayout({
         {/* Google Tag Manager */}
         <GoogleTagManager />
         
+        {/* Google Analytics 4 - Etiqueta directa */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-S90YCWHZX9"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-S90YCWHZX9');
+          `}
+        </Script>
+        
         {/* Schema.org estructurado */}
         <CRESEROrganizationSchema />
       </head>
