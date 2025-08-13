@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X, Youtube, Facebook, MessageCircle, Play, ExternalLink, Quote } from 'lucide-react';
+import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X, Youtube, Facebook, MessageCircle, Play, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import Particles from './components/Particles';
 import ServiceCard from './components/ServiceCard';
 import ValidatedForm from './components/ValidatedForm';
@@ -15,6 +15,8 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
+  const [tiktokScrollPosition, setTiktokScrollPosition] = useState(0);
+  const [facebookScrollPosition, setFacebookScrollPosition] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
@@ -105,6 +107,23 @@ export default function Home() {
     window.open(url, '_blank');
     setToast({ message: 'Abriendo testimonio...', type: 'success' });
     setTimeout(() => setToast(null), 2000);
+  };
+
+  // Funciones para el carrusel de testimonios
+  const scrollTestimonios = (direction: 'left' | 'right', type: 'tiktok' | 'facebook') => {
+    const scrollAmount = 320; // Ancho de cada tarjeta + gap
+    
+    if (type === 'tiktok') {
+      const newPosition = direction === 'left' 
+        ? Math.max(0, tiktokScrollPosition - scrollAmount)
+        : tiktokScrollPosition + scrollAmount;
+      setTiktokScrollPosition(newPosition);
+    } else {
+      const newPosition = direction === 'left' 
+        ? Math.max(0, facebookScrollPosition - scrollAmount)
+        : facebookScrollPosition + scrollAmount;
+      setFacebookScrollPosition(newPosition);
+    }
   };
 
   // Función para donaciones con mensaje personalizado
@@ -2003,100 +2022,162 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* TikTok Testimonios */}
-            {[
-              { url: 'https://vt.tiktok.com/ZSkKAaRCB/', title: 'Testimonio de Recuperación', description: 'Paciente comparte su experiencia de mejora' },
-              { url: 'https://vt.tiktok.com/ZSkEE7EW8/', title: 'Proceso de Tratamiento', description: 'Cómo el tratamiento cambió su vida' },
-              { url: 'https://vt.tiktok.com/ZSBJuBN7r/', title: 'Antes y Después', description: 'Transformación notable en su bienestar' },
-              { url: 'https://vt.tiktok.com/ZSBdjnK8m/', title: 'Calidad de Vida', description: 'Mejora significativa en actividades diarias' },
-              { url: 'https://vt.tiktok.com/ZSBd6dc9g/', title: 'Esperanza Renovada', description: 'Encontrando nuevas posibilidades' },
-              { url: 'https://vt.tiktok.com/ZSBBAMdL8/', title: 'Apoyo Integral', description: 'La importancia del equipo multidisciplinario' },
-              { url: 'https://vt.tiktok.com/ZSBQGeWXU/', title: 'Vida Activa', description: 'Regresando a las actividades que ama' },
-              { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
-            ].map((testimonio, index) => (
-              <div key={index} className="group">
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105">
-                  {/* Thumbnail simulado para TikTok */}
-                  <div className="relative h-64 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
-                        <Play className="w-8 h-8 text-white ml-1" />
+          {/* TikTok Testimonios - Carrusel */}
+          <div className="mb-16">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg">
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.05-2.83-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79-.06-3.57-.04-5.36z"/>
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">Testimonios TikTok</h3>
+              </div>
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => scrollTestimonios('left', 'tiktok')}
+                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-pink-300 group"
+                  disabled={tiktokScrollPosition === 0}
+                >
+                  <ChevronLeft className={`w-5 h-5 ${tiktokScrollPosition === 0 ? 'text-gray-400' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                </button>
+                <button
+                  onClick={() => scrollTestimonios('right', 'tiktok')}
+                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-pink-300 group"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-pink-600" />
+                </button>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex space-x-4 transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${tiktokScrollPosition}px)` }}
+              >
+                {[
+                  { url: 'https://vt.tiktok.com/ZSkKAaRCB/', title: 'Testimonio de Recuperación', description: 'Paciente comparte su experiencia de mejora' },
+                  { url: 'https://vt.tiktok.com/ZSkEE7EW8/', title: 'Proceso de Tratamiento', description: 'Cómo el tratamiento cambió su vida' },
+                  { url: 'https://vt.tiktok.com/ZSBJuBN7r/', title: 'Antes y Después', description: 'Transformación notable en su bienestar' },
+                  { url: 'https://vt.tiktok.com/ZSBdjnK8m/', title: 'Calidad de Vida', description: 'Mejora significativa en actividades diarias' },
+                  { url: 'https://vt.tiktok.com/ZSBd6dc9g/', title: 'Esperanza Renovada', description: 'Encontrando nuevas posibilidades' },
+                  { url: 'https://vt.tiktok.com/ZSBBAMdL8/', title: 'Apoyo Integral', description: 'La importancia del equipo multidisciplinario' },
+                  { url: 'https://vt.tiktok.com/ZSBQGeWXU/', title: 'Vida Activa', description: 'Regresando a las actividades que ama' },
+                  { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
+                ].map((testimonio, index) => (
+                  <div key={index} className="flex-none w-80 group">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105">
+                      {/* Thumbnail compacto para TikTok */}
+                      <div className="relative h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/20"></div>
+                        <div className="relative z-10 text-center text-white">
+                          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto backdrop-blur-sm">
+                            <Play className="w-6 h-6 text-white ml-1" />
+                          </div>
+                          <div className="flex items-center justify-center space-x-1 mb-1">
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.05-2.83-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79-.06-3.57-.04-5.36z"/>
+                            </svg>
+                            <span className="text-xs font-semibold">TikTok</span>
+                          </div>
+                          <p className="text-xs opacity-90">@creserfibromialgia</p>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-center space-x-2 mb-2">
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.05-2.83-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79-.06-3.57-.04-5.36z"/>
-                        </svg>
-                        <span className="text-sm font-semibold">TikTok</span>
+                      
+                      <div className="p-4">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors duration-300">
+                          {testimonio.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                          {testimonio.description}
+                        </p>
+                        <button
+                          onClick={() => handleTestimonio(testimonio.url)}
+                          className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2"
+                        >
+                          <Play className="w-4 h-4" />
+                          <span>Ver Video</span>
+                        </button>
                       </div>
-                      <p className="text-xs opacity-90">@creserfibromialgia</p>
                     </div>
                   </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors duration-300">
-                      {testimonio.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {testimonio.description}
-                    </p>
-                    <button
-                      onClick={() => handleTestimonio(testimonio.url)}
-                      className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-lg"
-                    >
-                      <Play className="w-5 h-5" />
-                      <span>Ver Testimonio</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Facebook Testimonios */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { url: 'https://www.facebook.com/share/v/16owsbESHz/', title: 'Experiencia en Facebook', description: 'Testimonio compartido en nuestra página oficial' },
-              { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
-            ].map((testimonio, index) => (
-              <div key={index} className="group">
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105">
-                  {/* Thumbnail simulado para Facebook */}
-                  <div className="relative h-64 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="relative z-10 text-center text-white">
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm">
-                        <Play className="w-8 h-8 text-white ml-1" />
+          {/* Facebook Testimonios - Carrusel */}
+          <div className="mb-16">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-3">
+                <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
+                  <Facebook className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800">Testimonios Facebook</h3>
+              </div>
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => scrollTestimonios('left', 'facebook')}
+                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 group"
+                  disabled={facebookScrollPosition === 0}
+                >
+                  <ChevronLeft className={`w-5 h-5 ${facebookScrollPosition === 0 ? 'text-gray-400' : 'text-gray-600 group-hover:text-blue-600'}`} />
+                </button>
+                <button
+                  onClick={() => scrollTestimonios('right', 'facebook')}
+                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 group"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-blue-600" />
+                </button>
+              </div>
+            </div>
+            
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex space-x-4 transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${facebookScrollPosition}px)` }}
+              >
+                {[
+                  { url: 'https://www.facebook.com/share/v/16owsbESHz/', title: 'Experiencia en Facebook', description: 'Testimonio compartido en nuestra página oficial' },
+                  { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
+                ].map((testimonio, index) => (
+                  <div key={index} className="flex-none w-80 group">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105">
+                      {/* Thumbnail compacto para Facebook */}
+                      <div className="relative h-48 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-black/20"></div>
+                        <div className="relative z-10 text-center text-white">
+                          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-3 mx-auto backdrop-blur-sm">
+                            <Play className="w-6 h-6 text-white ml-1" />
+                          </div>
+                          <div className="flex items-center justify-center space-x-1 mb-1">
+                            <Facebook className="w-4 h-4" />
+                            <span className="text-xs font-semibold">Facebook</span>
+                          </div>
+                          <p className="text-xs opacity-90">CRESER Fibromialgia</p>
+                        </div>
                       </div>
-                      <div className="flex items-center justify-center space-x-2 mb-2">
-                        <Facebook className="w-6 h-6" />
-                        <span className="text-sm font-semibold">Facebook</span>
+                      
+                      <div className="p-4">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                          {testimonio.title}
+                        </h4>
+                        <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                          {testimonio.description}
+                        </p>
+                        <button
+                          onClick={() => handleTestimonio(testimonio.url)}
+                          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2"
+                        >
+                          <Play className="w-4 h-4" />
+                          <span>Ver Video</span>
+                        </button>
                       </div>
-                      <p className="text-xs opacity-90">CRESER Fibromialgia</p>
                     </div>
                   </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                      {testimonio.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {testimonio.description}
-                    </p>
-                    <button
-                      onClick={() => handleTestimonio(testimonio.url)}
-                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 group-hover:shadow-lg"
-                    >
-                      <Play className="w-5 h-5" />
-                      <span>Ver Testimonio</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Llamada a la acción */}
