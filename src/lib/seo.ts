@@ -1,56 +1,43 @@
 import { Metadata } from 'next';
 
-// Configuración base de SEO para CRESER
 export const baseSEO: Metadata = {
   metadataBase: new URL('https://creser-fibromialgia.vercel.app'),
   title: {
-    default: 'CRESER - Asociación para el Manejo Integral de la Fibromialgia',
-    template: '%s | CRESER - Fibromialgia'
+    default: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+    template: '%s | CRESER - Fibromialgia León Guanajuato'
   },
-  description: 'OSC Asociación para el Manejo Integral y Preventivo de la Fibromialgia y la Fatiga Crónica CRESER A.C. - Atención especializada en León, Guanajuato.',
+  description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados. Tratamiento integral para fibromialgia en León.',
   keywords: [
-    'fibromialgia',
-    'fatiga crónica',
-    'tratamiento fibromialgia',
-    'psicoterapia fibromialgia',
-    'medicina especializada',
-    'León Guanajuato',
-    'CRESER',
-    'asociación fibromialgia',
-    'centro atención integral',
-    'dolor crónico',
-    'terapia fibromialgia',
-    'nutrición fibromialgia',
-    'fisioterapia fibromialgia'
+    'fibromialgia león', 'fibromialgia guanajuato', 'tratamiento fibromialgia león',
+    'psicólogo fibromialgia león', 'asociación fibromialgia león', 'centro fibromialgia león',
+    'dolor crónico león', 'fatiga crónica león', 'psicoterapia fibromialgia león',
+    'medicina especializada león', 'terapia fibromialgia guanajuato', 'CRESER león',
+    'asociación fibromialgia guanajuato', 'centro atención integral león', 'fibromialgia tratamiento león'
   ],
-  authors: [{ name: 'CRESER A.C.' }],
-  creator: 'CRESER A.C.',
-  publisher: 'CRESER A.C.',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  authors: [{ name: 'CRESER A.C. - León, Guanajuato' }],
+  creator: 'CRESER A.C. - Centro de Atención Integral para Fibromialgia',
+  publisher: 'CRESER A.C. - León, Guanajuato',
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
     url: 'https://creser-fibromialgia.vercel.app',
-    siteName: 'CRESER - Asociación Fibromialgia',
-    title: 'CRESER - Centro de Atención Integral para Fibromialgia',
-    description: 'Atención especializada en fibromialgia y fatiga crónica en León, Guanajuato. Servicios médicos, psicológicos, nutricionales y de fisioterapia.',
+    siteName: 'CRESER - Centro de Atención Integral para Fibromialgia en León',
+    title: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+    description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados. Tratamiento integral para fibromialgia.',
     images: [
       {
         url: '/logo-creser.jpg',
         width: 1200,
         height: 630,
-        alt: 'Logo CRESER - Asociación para el Manejo Integral de la Fibromialgia',
+        alt: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato'
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CRESER - Centro de Atención Integral para Fibromialgia',
-    description: 'Atención especializada en fibromialgia y fatiga crónica en León, Guanajuato.',
+    title: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+    description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados.',
     images: ['/logo-creser.jpg'],
     creator: '@creser_fibromialgia',
     site: '@creser_fibromialgia',
@@ -63,166 +50,115 @@ export const baseSEO: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+      'max-snippet': -1
+    }
   },
   verification: {
-    google: 'tu-codigo-google-verification', // Reemplazar con código real
+    google: 'tu-codigo-google-verification',
     yandex: 'tu-codigo-yandex',
-    yahoo: 'tu-codigo-yahoo',
+    yahoo: 'tu-codigo-yahoo'
   },
   alternates: {
     canonical: 'https://creser-fibromialgia.vercel.app',
     languages: {
       'es-MX': 'https://creser-fibromialgia.vercel.app',
-      'es': 'https://creser-fibromialgia.vercel.app',
-    },
+      'es': 'https://creser-fibromialgia.vercel.app'
+    }
   },
 };
 
-// Metadatos específicos para la página principal
+// SEO específico para la página principal
 export const homeSEO: Metadata = {
   ...baseSEO,
-  title: 'CRESER - Centro de Atención Integral para Fibromialgia | León, Guanajuato',
-  description: 'CRESER A.C. es la única clínica reconocida a nivel nacional especializada en fibromialgia. 14 años de experiencia con atención médica, psicológica, nutricional y fisioterapéutica integral en León, Guanajuato.',
+  title: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+  description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados. Tratamiento integral para fibromialgia en León. Ubicado en Paseo de las Águilas No. 95, León.',
+  keywords: [
+    'fibromialgia león', 'fibromialgia guanajuato', 'tratamiento fibromialgia león',
+    'psicólogo fibromialgia león', 'asociación fibromialgia león', 'centro fibromialgia león',
+    'dolor crónico león', 'fatiga crónica león', 'psicoterapia fibromialgia león',
+    'medicina especializada león', 'terapia fibromialgia guanajuato', 'CRESER león',
+    'asociación fibromialgia guanajuato', 'centro atención integral león', 'fibromialgia tratamiento león',
+    'león guanajuato fibromialgia', 'psicólogo león fibromialgia', 'terapeuta fibromialgia león'
+  ],
   openGraph: {
     ...baseSEO.openGraph,
-    title: 'CRESER - Centro de Atención Integral para Fibromialgia',
-    description: 'La única clínica reconocida a nivel nacional especializada en fibromialgia. Atención integral en León, Guanajuato.',
-    images: [
-      {
-        url: '/logo-creser.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'CRESER - Centro Especializado en Fibromialgia',
-      }
-    ],
+    title: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+    description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados. Tratamiento integral para fibromialgia en León.',
+  },
+  twitter: {
+    ...baseSEO.twitter,
+    title: 'CRESER - Centro de Atención Integral para Fibromialgia en León, Guanajuato',
+    description: 'Centro especializado en fibromialgia y fatiga crónica en León, Guanajuato. Psicólogos, médicos y terapeutas especializados.',
   },
 };
 
-// Metadatos para servicios médicos
-export const serviciosSEO: Metadata = {
+// SEO para página de servicios
+export const servicesSEO: Metadata = {
   ...baseSEO,
-  title: 'Servicios Médicos Especializados en Fibromialgia | CRESER',
-  description: 'Servicios integrales para fibromialgia: medicina especializada, psicoterapia, nutrición y fisioterapia. Atención personalizada en León, Guanajuato.',
-  openGraph: {
-    ...baseSEO.openGraph,
-    title: 'Servicios Médicos Especializados en Fibromialgia | CRESER',
-    description: 'Medicina, psicología, nutrición y fisioterapia especializada en fibromialgia. Atención integral en León, Guanajuato.',
-    images: [
-      {
-        url: '/proceso de atención multidisciplinario.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Proceso de atención multidisciplinario CRESER',
-      }
-    ],
-  },
+  title: 'Servicios de Fibromialgia en León, Guanajuato | CRESER',
+  description: 'Servicios especializados para fibromialgia en León, Guanajuato. Psicoterapia, medicina especializada, nutrición y fisioterapia. Tratamiento integral para fibromialgia.',
+  keywords: [
+    'servicios fibromialgia león', 'psicoterapia fibromialgia león', 'medicina fibromialgia león',
+    'nutrición fibromialgia león', 'fisioterapia fibromialgia león', 'tratamiento fibromialgia león guanajuato',
+    'psicólogo especializado fibromialgia león', 'terapia fibromialgia león', 'centro servicios fibromialgia león'
+  ],
 };
 
-// Metadatos para psicoterapia
-export const psicoterapiaSEO: Metadata = {
+// SEO para página de psicoterapia
+export const psychoterapySEO: Metadata = {
   ...baseSEO,
-  title: 'Psicoterapia Especializada en Fibromialgia | Psic. Maricruz Ríos | CRESER',
-  description: 'Psicoterapia individual y de pareja especializada en fibromialgia. Más de 20 años de experiencia con Psic. Maricruz Ríos Medina en León, Guanajuato.',
-  openGraph: {
-    ...baseSEO.openGraph,
-    title: 'Psicoterapia Especializada en Fibromialgia | Psic. Maricruz Ríos',
-    description: 'Psicoterapia individual, de pareja e infantil especializada en fibromialgia. Directora Psic. Maricruz Ríos Medina en León, Guanajuato.',
-    images: [
-      {
-        url: '/Psicoterapia por profesionales.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Psic. Maricruz Ríos Medina - Directora CRESER',
-      }
-    ],
-  },
+  title: 'Psicoterapia para Fibromialgia en León, Guanajuato | CRESER',
+  description: 'Psicoterapia especializada para fibromialgia en León, Guanajuato. Psicólogos expertos en dolor crónico y fatiga. Terapia individual, de pareja y familiar.',
+  keywords: [
+    'psicoterapia fibromialgia león', 'psicólogo fibromialgia león', 'terapia fibromialgia león',
+    'psicólogo dolor crónico león', 'terapia fatiga crónica león', 'psicólogo especializado león',
+    'psicoterapia individual león', 'terapia pareja fibromialgia león', 'psicólogo león guanajuato'
+  ],
 };
 
-// Metadatos para contacto
-export const contactoSEO: Metadata = {
+// SEO para página de contacto
+export const contactSEO: Metadata = {
   ...baseSEO,
-  title: 'Contacto CRESER - Fibromialgia León, Guanajuato | Teléfonos y Ubicación',
-  description: 'Contacta con CRESER en León, Guanajuato. Teléfonos: (477) 412-5698, (477) 329-5370, (477) 132-6835. Ubicación: Paseo de las Águilas 95, San Isidro.',
-  openGraph: {
-    ...baseSEO.openGraph,
-    title: 'Contacto CRESER - Fibromialgia León, Guanajuato',
-    description: 'Teléfonos, ubicación y horarios de atención. Paseo de las Águilas 95, San Isidro, León, Guanajuato.',
-    images: [
-      {
-        url: '/logo-creser.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Contacto CRESER - Asociación Fibromialgia',
-      }
-    ],
-  },
+  title: 'Contacto CRESER - Centro de Fibromialgia en León, Guanajuato',
+  description: 'Contacta con CRESER en León, Guanajuato. Centro especializado en fibromialgia. Teléfono: +52-477-412-5698. Ubicado en Paseo de las Águilas No. 95, León.',
+  keywords: [
+    'contacto CRESER león', 'teléfono fibromialgia león', 'dirección CRESER león',
+    'ubicación centro fibromialgia león', 'contactar psicólogo fibromialgia león',
+    'CRESER león guanajuato contacto', 'centro atención fibromialgia león dirección'
+  ],
 };
 
-// Metadatos para donativos
-export const donativosSEO: Metadata = {
+// SEO para página de donativos
+export const donationsSEO: Metadata = {
   ...baseSEO,
-  title: 'Donativos CRESER - Apoya la Causa de la Fibromialgia | León, Guanajuato',
-  description: 'Apoya a CRESER con donativos para continuar brindando atención integral especializada a pacientes con fibromialgia. Deducible de impuestos.',
-  openGraph: {
-    ...baseSEO.openGraph,
-    title: 'Donativos CRESER - Apoya la Causa de la Fibromialgia',
-    description: 'Tu apoyo nos permite continuar brindando atención integral especializada. Diferentes formas de contribuir: paciente, profesionista, familia, voluntario, empresa.',
-    images: [
-      {
-        url: '/Donativos creser .jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Donativos CRESER - Pon tu corazón',
-      }
-    ],
-  },
+  title: 'Donativos para CRESER - Centro de Fibromialgia en León, Guanajuato',
+  description: 'Apoya a CRESER en León, Guanajuato. Tu donativo ayuda a personas con fibromialgia. Asociación sin fines de lucro comprometida con la salud de la comunidad.',
+  keywords: [
+    'donativos CRESER león', 'apoyar fibromialgia león', 'donar CRESER guanajuato',
+    'asociación fibromialgia león donativos', 'ayudar personas fibromialgia león',
+    'CRESER león donaciones', 'centro fibromialgia león apoyo'
+  ],
 };
 
-// Función para generar metadatos dinámicos
+// Función para generar SEO dinámico
 export function generateDynamicSEO(
-  page: 'home' | 'servicios' | 'psicoterapia' | 'contacto' | 'donativos',
-  customData?: {
-    title?: string;
-    description?: string;
-    image?: string;
-    keywords?: string[];
-  }
+  pageType: 'home' | 'services' | 'psychoterapy' | 'contact' | 'donations',
+  additionalData?: Record<string, string>
 ): Metadata {
   const baseMetadata = {
     home: homeSEO,
-    servicios: serviciosSEO,
-    psicoterapia: psicoterapiaSEO,
-    contacto: contactoSEO,
-    donativos: donativosSEO,
-  }[page];
+    services: servicesSEO,
+    psychoterapy: psychoterapySEO,
+    contact: contactSEO,
+    donations: donationsSEO,
+  }[pageType];
 
-  if (!customData) return baseMetadata;
+  if (!additionalData) return baseMetadata;
 
   return {
     ...baseMetadata,
-    title: customData.title || baseMetadata.title,
-    description: customData.description || baseMetadata.description,
-    keywords: customData.keywords || baseMetadata.keywords,
-    openGraph: {
-      ...baseMetadata.openGraph,
-      title: customData.title || baseMetadata.openGraph?.title,
-      description: customData.description || baseMetadata.openGraph?.description,
-      images: customData.image ? [
-        {
-          url: customData.image,
-          width: 1200,
-          height: 630,
-          alt: customData.title || 'CRESER - Fibromialgia',
-        }
-      ] : baseMetadata.openGraph?.images,
-    },
-    twitter: {
-      ...baseMetadata.twitter,
-      title: customData.title || baseMetadata.twitter?.title,
-      description: customData.description || baseMetadata.twitter?.description,
-      images: customData.image ? [customData.image] : baseMetadata.twitter?.images,
-    },
+    title: additionalData.title ? `${additionalData.title} | CRESER - Fibromialgia León Guanajuato` : baseMetadata.title,
+    description: additionalData.description || baseMetadata.description,
+    keywords: additionalData.keywords ? [...(baseMetadata.keywords || []), ...additionalData.keywords.split(',')] : baseMetadata.keywords,
   };
 }
