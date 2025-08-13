@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X } from 'lucide-react';
+import { Phone, MapPin, Heart, Users, Stethoscope, Brain, Utensils, Activity, ChevronDown, Star, Shield, Calendar, BookOpen, Sparkles, Zap, Target, X, Youtube, Facebook, MessageCircle } from 'lucide-react';
 import Particles from './components/Particles';
 import ServiceCard from './components/ServiceCard';
 import ValidatedForm from './components/ValidatedForm';
@@ -81,6 +81,23 @@ export default function Home() {
     const subject = encodeURIComponent('Consulta sobre servicios CRESER');
     const body = encodeURIComponent('Estimado equipo de CRESER,\n\nMe gustaría obtener más información sobre sus servicios para el manejo de fibromialgia.\n\nGracias.');
     window.open(`mailto:info@creser.org?subject=${subject}&body=${body}`, '_self');
+  };
+
+  // Función para redes sociales
+  const handleSocialMedia = (platform: string) => {
+    const urls = {
+      youtube: 'https://m.youtube.com/@creserleon',
+      facebook: 'https://www.facebook.com/share/oprV6AZNcUoABDnL/',
+      whatsapp: 'https://bit.ly/CentroCreserSaludIntegralparatuFamilia',
+      tiktok: 'https://www.tiktok.com/@creserfibromialgia'
+    };
+    
+    const url = urls[platform as keyof typeof urls];
+    if (url) {
+      window.open(url, '_blank');
+      setToast({ message: `Abriendo ${platform}...`, type: 'success' });
+      setTimeout(() => setToast(null), 2000);
+    }
   };
 
   // Función para donaciones con mensaje personalizado
@@ -2180,6 +2197,66 @@ export default function Home() {
               <p className="text-blue-200">
                 Transformando vidas a través de la atención especializada, la educación y el apoyo integral.
               </p>
+            </div>
+            
+            {/* Redes Sociales */}
+            <div className="border-t border-white/20 pt-6">
+              <h4 className="text-xl font-semibold text-yellow-200 mb-4">Síguenos en Redes Sociales</h4>
+              <div className="flex flex-wrap justify-center gap-6">
+                {/* YouTube */}
+                <button 
+                  onClick={() => handleSocialMedia('youtube')}
+                  className="group flex flex-col items-center space-y-2 p-4 rounded-xl bg-gradient-to-br from-red-500/20 to-red-600/20 hover:from-red-500/30 hover:to-red-600/30 transition-all duration-300 hover:scale-105 border border-red-400/30 hover:border-red-400/50"
+                  aria-label="Síguenos en YouTube"
+                >
+                  <div className="p-3 bg-red-500 rounded-full group-hover:bg-red-400 transition-colors duration-300">
+                    <Youtube className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-blue-100 group-hover:text-yellow-200 transition-colors duration-300">YouTube</span>
+                  <span className="text-xs text-blue-200">@creserleon</span>
+                </button>
+
+                {/* Facebook */}
+                <button 
+                  onClick={() => handleSocialMedia('facebook')}
+                  className="group flex flex-col items-center space-y-2 p-4 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 hover:from-blue-500/30 hover:to-blue-600/30 transition-all duration-300 hover:scale-105 border border-blue-400/30 hover:border-blue-400/50"
+                  aria-label="Síguenos en Facebook"
+                >
+                  <div className="p-3 bg-blue-500 rounded-full group-hover:bg-blue-400 transition-colors duration-300">
+                    <Facebook className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-blue-100 group-hover:text-yellow-200 transition-colors duration-300">Facebook</span>
+                  <span className="text-xs text-blue-200">CRESER Fibromialgia</span>
+                </button>
+
+                {/* WhatsApp */}
+                <button 
+                  onClick={() => handleSocialMedia('whatsapp')}
+                  className="group flex flex-col items-center space-y-2 p-4 rounded-xl bg-gradient-to-br from-green-500/20 to-green-600/20 hover:from-green-500/30 hover:to-green-600/30 transition-all duration-300 hover:scale-105 border border-green-400/30 hover:border-green-400/50"
+                  aria-label="Contáctanos por WhatsApp"
+                >
+                  <div className="p-3 bg-green-500 rounded-full group-hover:bg-green-400 transition-colors duration-300">
+                    <MessageCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-blue-100 group-hover:text-yellow-200 transition-colors duration-300">WhatsApp</span>
+                  <span className="text-xs text-blue-200">Centro Creser</span>
+                </button>
+
+                {/* TikTok */}
+                <button 
+                  onClick={() => handleSocialMedia('tiktok')}
+                  className="group flex flex-col items-center space-y-2 p-4 rounded-xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 hover:from-pink-500/30 hover:to-pink-600/30 transition-all duration-300 hover:scale-105 border border-pink-400/30 hover:border-pink-400/50"
+                  aria-label="Síguenos en TikTok"
+                >
+                  <div className="p-3 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full group-hover:from-pink-400 group-hover:to-blue-400 transition-all duration-300">
+                    <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.05-2.83-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79-.06-3.57-.04-5.36z"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-blue-100 group-hover:text-yellow-200 transition-colors duration-300">TikTok</span>
+                  <span className="text-xs text-blue-200">@creserfibromialgia</span>
+                </button>
+              </div>
             </div>
             
             <div className="flex flex-wrap justify-center gap-8 text-sm">
