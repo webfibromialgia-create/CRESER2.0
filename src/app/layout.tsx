@@ -46,25 +46,11 @@ export default function RootLayout({
         <meta name="business:contact_data:country_name" content="México" />
         <meta name="business:contact_data:phone_number" content="+52-477-412-5698" />
         
-        {/* Schema.org estructurado */}
-        <CRESEROrganizationSchema />
-        
         {/* Google Tag Manager */}
         <GoogleTagManager />
         
-        {/* Google Analytics 4 - Etiqueta directa */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-S90YCWHZX9"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-S90YCWHZX9');
-          `}
-        </Script>
+        {/* Schema.org estructurado */}
+        <CRESEROrganizationSchema />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
