@@ -111,18 +111,55 @@ export default function Home() {
 
   // Funciones para el carrusel de testimonios
   const scrollTestimonios = (direction: 'left' | 'right', type: 'tiktok' | 'facebook') => {
-    const scrollAmount = 320; // Ancho de cada tarjeta + gap
+    if (typeof window === 'undefined') return; // No ejecutar durante SSR
+    
+    const cardWidth = 320; // Ancho de cada tarjeta (w-80 = 320px)
+    const gap = 16; // gap-4 = 16px
+    const scrollAmount = cardWidth + gap;
+    const containerWidth = window.innerWidth - 32; // Ancho del contenedor menos padding
+    const visibleCards = Math.floor(containerWidth / scrollAmount);
     
     if (type === 'tiktok') {
+      const totalCards = 8;
+      const maxScroll = Math.max(0, (totalCards - visibleCards) * scrollAmount);
+      
       const newPosition = direction === 'left' 
         ? Math.max(0, tiktokScrollPosition - scrollAmount)
-        : tiktokScrollPosition + scrollAmount;
+        : Math.min(maxScroll, tiktokScrollPosition + scrollAmount);
       setTiktokScrollPosition(newPosition);
     } else {
+      const totalCards = 2;
+      const maxScroll = Math.max(0, (totalCards - visibleCards) * scrollAmount);
+      
       const newPosition = direction === 'left' 
         ? Math.max(0, facebookScrollPosition - scrollAmount)
-        : facebookScrollPosition + scrollAmount;
+        : Math.min(maxScroll, facebookScrollPosition + scrollAmount);
       setFacebookScrollPosition(newPosition);
+    }
+  };
+
+  // Funciones para verificar si los botones deben estar habilitados
+  const canScrollLeft = (type: 'tiktok' | 'facebook') => {
+    return type === 'tiktok' ? tiktokScrollPosition > 0 : facebookScrollPosition > 0;
+  };
+
+  const canScrollRight = (type: 'tiktok' | 'facebook') => {
+    if (typeof window === 'undefined') return true; // Durante SSR, permitir scroll
+    
+    const cardWidth = 320;
+    const gap = 16;
+    const scrollAmount = cardWidth + gap;
+    const containerWidth = window.innerWidth - 32;
+    const visibleCards = Math.floor(containerWidth / scrollAmount);
+    
+    if (type === 'tiktok') {
+      const totalCards = 8;
+      const maxScroll = Math.max(0, (totalCards - visibleCards) * scrollAmount);
+      return tiktokScrollPosition < maxScroll;
+    } else {
+      const totalCards = 2;
+      const maxScroll = Math.max(0, (totalCards - visibleCards) * scrollAmount);
+      return facebookScrollPosition < maxScroll;
     }
   };
 
@@ -2036,16 +2073,17 @@ export default function Home() {
               <div className="flex space-x-2">
                 <button
                   onClick={() => scrollTestimonios('left', 'tiktok')}
-                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-pink-300 group"
-                  disabled={tiktokScrollPosition === 0}
+                  className={`p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 ${canScrollLeft('tiktok') ? 'hover:border-pink-300 group' : 'cursor-not-allowed opacity-50'}`}
+                  disabled={!canScrollLeft('tiktok')}
                 >
-                  <ChevronLeft className={`w-5 h-5 ${tiktokScrollPosition === 0 ? 'text-gray-400' : 'text-gray-600 group-hover:text-pink-600'}`} />
+                  <ChevronLeft className={`w-5 h-5 ${!canScrollLeft('tiktok') ? 'text-gray-400' : 'text-gray-600 group-hover:text-pink-600'}`} />
                 </button>
                 <button
                   onClick={() => scrollTestimonios('right', 'tiktok')}
-                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-pink-300 group"
+                  className={`p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 ${canScrollRight('tiktok') ? 'hover:border-pink-300 group' : 'cursor-not-allowed opacity-50'}`}
+                  disabled={!canScrollRight('tiktok')}
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-pink-600" />
+                  <ChevronRight className={`w-5 h-5 ${!canScrollRight('tiktok') ? 'text-gray-400' : 'text-gray-600 group-hover:text-pink-600'}`} />
                 </button>
               </div>
             </div>
@@ -2066,7 +2104,7 @@ export default function Home() {
                   { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105 h-80">
                       {/* Thumbnail compacto para TikTok */}
                       <div className="relative h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -2084,16 +2122,16 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="p-4">
-                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors duration-300">
+                      <div className="p-4 flex flex-col h-32">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors duration-300 line-clamp-2">
                           {testimonio.title}
                         </h4>
-                        <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                        <p className="text-gray-600 text-sm mb-3 leading-relaxed flex-1 line-clamp-2">
                           {testimonio.description}
                         </p>
                         <button
                           onClick={() => handleTestimonio(testimonio.url)}
-                          className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2"
+                          className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
                         >
                           <Play className="w-4 h-4" />
                           <span>Ver Video</span>
@@ -2118,16 +2156,17 @@ export default function Home() {
               <div className="flex space-x-2">
                 <button
                   onClick={() => scrollTestimonios('left', 'facebook')}
-                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 group"
-                  disabled={facebookScrollPosition === 0}
+                  className={`p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 ${canScrollLeft('facebook') ? 'hover:border-blue-300 group' : 'cursor-not-allowed opacity-50'}`}
+                  disabled={!canScrollLeft('facebook')}
                 >
-                  <ChevronLeft className={`w-5 h-5 ${facebookScrollPosition === 0 ? 'text-gray-400' : 'text-gray-600 group-hover:text-blue-600'}`} />
+                  <ChevronLeft className={`w-5 h-5 ${!canScrollLeft('facebook') ? 'text-gray-400' : 'text-gray-600 group-hover:text-blue-600'}`} />
                 </button>
                 <button
                   onClick={() => scrollTestimonios('right', 'facebook')}
-                  className="p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 group"
+                  className={`p-2 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 ${canScrollRight('facebook') ? 'hover:border-blue-300 group' : 'cursor-not-allowed opacity-50'}`}
+                  disabled={!canScrollRight('facebook')}
                 >
-                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-blue-600" />
+                  <ChevronRight className={`w-5 h-5 ${!canScrollRight('facebook') ? 'text-gray-400' : 'text-gray-600 group-hover:text-blue-600'}`} />
                 </button>
               </div>
             </div>
@@ -2142,7 +2181,7 @@ export default function Home() {
                   { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105 h-80">
                       {/* Thumbnail compacto para Facebook */}
                       <div className="relative h-48 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -2158,16 +2197,16 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="p-4">
-                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                      <div className="p-4 flex flex-col h-32">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
                           {testimonio.title}
                         </h4>
-                        <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                        <p className="text-gray-600 text-sm mb-3 leading-relaxed flex-1 line-clamp-2">
                           {testimonio.description}
                         </p>
                         <button
                           onClick={() => handleTestimonio(testimonio.url)}
-                          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2"
+                          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
                         >
                           <Play className="w-4 h-4" />
                           <span>Ver Video</span>
