@@ -2104,7 +2104,7 @@ export default function Home() {
                   { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105 h-80">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-105 h-72">
                       {/* Thumbnail compacto para TikTok */}
                       <div className="relative h-48 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-500 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -2122,16 +2122,13 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="p-4 flex flex-col h-32">
-                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors duration-300 line-clamp-2">
+                      <div className="p-4 flex flex-col h-24">
+                        <h4 className="text-lg font-bold text-gray-800 mb-4 group-hover:text-pink-600 transition-colors duration-300 text-center">
                           {testimonio.title}
                         </h4>
-                        <p className="text-gray-600 text-sm mb-3 leading-relaxed flex-1 line-clamp-2">
-                          {testimonio.description}
-                        </p>
                         <button
                           onClick={() => handleTestimonio(testimonio.url)}
-                          className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
+                          className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-4 rounded-lg text-sm font-semibold hover:from-pink-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
                         >
                           <Play className="w-4 h-4" />
                           <span>Ver Video</span>
@@ -2181,7 +2178,7 @@ export default function Home() {
                   { url: 'https://www.facebook.com/share/v/1B4beZJdFJ/', title: 'Historia de Superación', description: 'Paciente comparte su proceso de recuperación' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105 h-80">
+                    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-100 hover:border-blue-300 transform hover:scale-105 h-72">
                       {/* Thumbnail compacto para Facebook */}
                       <div className="relative h-48 bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-600 flex items-center justify-center">
                         <div className="absolute inset-0 bg-black/20"></div>
@@ -2197,16 +2194,13 @@ export default function Home() {
                         </div>
                       </div>
                       
-                      <div className="p-4 flex flex-col h-32">
-                        <h4 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                      <div className="p-4 flex flex-col h-24">
+                        <h4 className="text-lg font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300 text-center">
                           {testimonio.title}
                         </h4>
-                        <p className="text-gray-600 text-sm mb-3 leading-relaxed flex-1 line-clamp-2">
-                          {testimonio.description}
-                        </p>
                         <button
                           onClick={() => handleTestimonio(testimonio.url)}
-                          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
+                          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 px-4 rounded-lg text-sm font-semibold hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 flex items-center justify-center space-x-2 mt-auto"
                         >
                           <Play className="w-4 h-4" />
                           <span>Ver Video</span>
