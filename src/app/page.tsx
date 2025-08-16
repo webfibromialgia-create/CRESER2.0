@@ -78,13 +78,6 @@ export default function Home() {
     }, 2000);
   };
 
-  // Función para email
-  const handleEmail = () => {
-    const subject = encodeURIComponent('Consulta sobre servicios CRESER');
-    const body = encodeURIComponent('Estimado equipo de CRESER,\n\nMe gustaría obtener más información sobre sus servicios para el manejo de fibromialgia.\n\nGracias.');
-    window.open(`mailto:info@creser.org?subject=${subject}&body=${body}`, '_self');
-  };
-
   // Función para abrir el aviso de privacidad
   const handlePrivacyPolicy = () => {
     window.open('/aviso-privacidad.pdf', '_blank');
@@ -1910,7 +1903,7 @@ export default function Home() {
                 ].map((frase, index) => (
                   <div key={index} className="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl border border-green-200 hover:border-green-300 transition-colors">
                     <p className="text-gray-700 text-center leading-relaxed">
-                      "{frase}"
+                      &ldquo;{frase}&rdquo;
                     </p>
                   </div>
                 ))}
