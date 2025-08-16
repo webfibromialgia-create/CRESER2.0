@@ -136,13 +136,22 @@ export default function Home() {
     }
   };
 
+  // Estado para controlar la hidratación
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Efecto para marcar cuando la hidratación está completa
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
   // Funciones para verificar si los botones deben estar habilitados
   const canScrollLeft = (type: 'tiktok' | 'facebook') => {
+    if (!isHydrated) return false; // Durante SSR, deshabilitar
     return type === 'tiktok' ? tiktokScrollPosition > 0 : facebookScrollPosition > 0;
   };
 
   const canScrollRight = (type: 'tiktok' | 'facebook') => {
-    if (typeof window === 'undefined') return true; // Durante SSR, permitir scroll
+    if (!isHydrated) return false; // Durante SSR, deshabilitar
     
     const cardWidth = 320;
     const gap = 16;
