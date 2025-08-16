@@ -2525,7 +2525,7 @@ export default function Home() {
               </button>
               <button onClick={handleLocation} className="hover:text-yellow-300 transition-colors flex items-center space-x-2">
                 <MapPin className="w-4 h-4" />
-                <span>Mapa del Sitio</span>
+                <span>Cómo Llegar</span>
               </button>
             </div>
             
