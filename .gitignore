@@ -42,6 +42,8 @@ next-env.d.ts
 
 # Documentos generados
 *.docx
+Credenciales_CRESER.docx
 
 # Scripts de Python
 generar_documentos.py
+generar_credenciales.py
