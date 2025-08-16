@@ -1234,11 +1234,11 @@ export default function Home() {
             <div className="glass-card p-8 rounded-3xl hover-lift">
               <div className="relative mb-6">
                 <button 
-                  onClick={() => openImageModal("/Psicoterapia del adulto mayor.jpg", "Psicoterapia Infantil - CRESER")}
+                  onClick={() => openImageModal("/atencion infantil.jpg", "Psicoterapia Infantil - CRESER")}
                   className="w-full h-48 overflow-hidden rounded-xl hover:scale-105 transition-transform duration-300"
                 >
                 <Image
-                  src="/Psicoterapia del adulto mayor.jpg"
+                  src="/atencion infantil.jpg"
                   alt="Psicoterapia Infantil"
                   width={300}
                   height={200}
@@ -2095,13 +2095,13 @@ export default function Home() {
               >
                 {[
                   { url: 'https://vt.tiktok.com/ZSkKAaRCB/', title: 'Experiencia con la fibromialgia', description: 'Paciente comparte su experiencia de mejora' },
-                  { url: 'https://vt.tiktok.com/ZSkEE7EW8/', title: 'Proceso de Tratamiento', description: 'Cómo el tratamiento cambió su vida' },
-                  { url: 'https://vt.tiktok.com/ZSBJuBN7r/', title: 'Antes y Después', description: 'Transformación notable en su bienestar' },
-                  { url: 'https://vt.tiktok.com/ZSBdjnK8m/', title: 'Calidad de Vida', description: 'Mejora significativa en actividades diarias' },
-                  { url: 'https://vt.tiktok.com/ZSBd6dc9g/', title: 'Esperanza Renovada', description: 'Encontrando nuevas posibilidades' },
-                  { url: 'https://vt.tiktok.com/ZSBBAMdL8/', title: 'Apoyo Integral', description: 'La importancia del equipo multidisciplinario' },
-                  { url: 'https://vt.tiktok.com/ZSBQGeWXU/', title: 'Vida Activa', description: 'Regresando a las actividades que ama' },
-                  { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Comunidad de Apoyo', description: 'Encontrando fuerza en la comunidad CRESER' }
+                  { url: 'https://vt.tiktok.com/ZSkEE7EW8/', title: 'Mensajes de apoyo', description: 'Cómo el tratamiento cambió su vida' },
+                  { url: 'https://vt.tiktok.com/ZSBJuBN7r/', title: 'Una vida con fibromialgia', description: 'Transformación notable en su bienestar' },
+                  { url: 'https://vt.tiktok.com/ZSBdjnK8m/', title: 'Reflexión: Dolor y sufrimiento', description: 'Mejora significativa en actividades diarias' },
+                  { url: 'https://vt.tiktok.com/ZSBd6dc9g/', title: 'Compartiendo experiencias', description: 'Encontrando nuevas posibilidades' },
+                  { url: 'https://vt.tiktok.com/ZSBBAMdL8/', title: 'Testimonios y entrevistas', description: 'La importancia del equipo multidisciplinario' },
+                  { url: 'https://vt.tiktok.com/ZSBQGeWXU/', title: 'Historia con la Fibromialgia', description: 'Regresando a las actividades que ama' },
+                  { url: 'https://vt.tiktok.com/ZSBw4r4tN/', title: 'Viviendo con fibromialgia', description: 'Encontrando fuerza en la comunidad CRESER' }
                 ].map((testimonio, index) => (
                   <div key={index} className="flex-none w-80 group">
                     <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-pink-100 hover:border-pink-300 transform hover:scale-102 h-76">
