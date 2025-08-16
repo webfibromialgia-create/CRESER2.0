@@ -85,6 +85,11 @@ export default function Home() {
     window.open(`mailto:info@creser.org?subject=${subject}&body=${body}`, '_self');
   };
 
+  // Función para abrir el aviso de privacidad
+  const handlePrivacyPolicy = () => {
+    window.open('/aviso-privacidad.pdf', '_blank');
+  };
+
   // Función para redes sociales
   const handleSocialMedia = (platform: string) => {
     const urls = {
@@ -880,7 +885,7 @@ export default function Home() {
                     alt="Personal Médico CRESER"
                     width={300}
                     height={200}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover object-[center_20%] cursor-pointer"
                     unoptimized
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -925,7 +930,7 @@ export default function Home() {
                     alt="Equipo Médico Integral CRESER"
                     width={300}
                     height={200}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover object-[center_20%] cursor-pointer"
                     unoptimized
                   />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -1116,9 +1121,9 @@ export default function Home() {
           </div>
 
           {/* Servicios de psicoterapia */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 auto-rows-fr">
             {/* Psicoterapia Individual */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/Psicoterapia por profesionales.jpg", "Psicoterapia Individual - CRESER")}
@@ -1177,13 +1182,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Contactar para Información
               </button>
             </div>
 
             {/* Psicoterapia de Pareja */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/Psicoterapia todo tipo de parejas.jpg", "Psicoterapia de Pareja - CRESER")}
@@ -1225,13 +1230,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Contactar para Información
               </button>
             </div>
 
             {/* Psicoterapia Infantil */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/atencion infantil.jpg", "Psicoterapia Infantil - CRESER")}
@@ -1242,7 +1247,7 @@ export default function Home() {
                   alt="Psicoterapia Infantil"
                   width={300}
                   height={200}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover object-[center_25%] cursor-pointer"
                   unoptimized
                 />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -1273,13 +1278,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Consulta Infantil
               </button>
             </div>
 
             {/* Psicoterapia para Personal de Salud */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/Para pagina 11 (Atencion a personal medico).jpg", "Personal del Área de Salud - CRESER")}
@@ -1323,13 +1328,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Atención Especializada
               </button>
             </div>
 
             {/* Terapia Psico-Tanatológica */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/Atencion tanatologica.jpg", "Terapia Psico-Tanatológica - CRESER")}
@@ -1371,13 +1376,13 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Acompañamiento Tanatológico
               </button>
             </div>
 
             {/* Arte Terapia */}
-            <div className="glass-card p-8 rounded-3xl hover-lift">
+            <div className="glass-card p-8 rounded-3xl hover-lift flex flex-col h-full">
               <div className="relative mb-6">
                 <button 
                   onClick={() => openImageModal("/Arte terapia.jpg", "Arte Terapia - CRESER")}
@@ -1388,7 +1393,7 @@ export default function Home() {
                   alt="Arte Terapia"
                   width={300}
                   height={200}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover object-[center_15%] cursor-pointer"
                   unoptimized
                 />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -1421,7 +1426,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3">
+              <button onClick={handleWhatsApp} className="w-full btn-primary text-sm py-3 mt-auto">
                 Conocer Arte Terapia
               </button>
             </div>
@@ -1582,7 +1587,7 @@ export default function Home() {
                   alt="Personal de la Asociación"
                   width={300}
                   height={200}
-                    className="w-full h-full object-cover cursor-pointer"
+                    className="w-full h-full object-cover object-[center_35%] cursor-pointer"
                   unoptimized
                 />
                   <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -2514,7 +2519,7 @@ export default function Home() {
             </div>
             
             <div className="flex flex-wrap justify-center gap-8 text-sm">
-              <button onClick={handleEmail} className="hover:text-yellow-300 transition-colors flex items-center space-x-2">
+              <button onClick={handlePrivacyPolicy} className="hover:text-yellow-300 transition-colors flex items-center space-x-2">
                 <Shield className="w-4 h-4" />
                 <span>Política de Privacidad</span>
               </button>
