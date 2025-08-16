@@ -1821,6 +1821,103 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Sección de Fibromialgia Infantil */}
+          <div className="mb-24">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center space-x-2 bg-green-100 px-6 py-3 rounded-full mb-6">
+                <Heart className="w-5 h-5 text-green-600" />
+                <span className="text-green-800 font-medium">Atención Especializada</span>
+              </div>
+              <h3 className="text-4xl md:text-5xl font-bold font-display mb-6 text-green-800">
+                Fibromialgia Infantil
+              </h3>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Información esencial para padres y cuidadores sobre la fibromialgia juvenil y cómo apoyar a los niños que viven con esta condición
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Información principal */}
+              <div className="card-glow p-8 rounded-3xl">
+                <h4 className="text-2xl font-bold text-green-800 mb-6">¿Tu Hijo Podría Tener Fibromialgia?</h4>
+                <div className="space-y-4">
+                  <p className="text-gray-700 leading-relaxed">
+                    Si tu hijo se queja de dolores, está muy cansado, tiene problemas para dormir, o muestra estar muy distraído puede que tenga fibromialgia.
+                  </p>
+                  <div className="bg-green-50 p-4 rounded-xl border-l-4 border-green-500">
+                    <p className="text-green-800 font-semibold">
+                      <strong>Acude al médico...</strong><br />
+                      La fibromialgia en niños, es llamada fibromialgia juvenil.
+                    </p>
+                  </div>
+                  <div className="bg-red-50 p-4 rounded-xl border-l-4 border-red-500">
+                    <p className="text-red-800 font-semibold">
+                      <strong>IMPORTANTE:</strong><br />
+                      El dolor generalizado principalmente en piernas y músculos, no querer moverse y no dormir bien. <strong>NO SON NORMALES DEL CRECIMIENTO</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mitos y realidades */}
+              <div className="card-glow p-8 rounded-3xl">
+                <h4 className="text-2xl font-bold text-green-800 mb-6">Mitos Comunes sobre la Fibromialgia en la Infancia</h4>
+                <div className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-xl">
+                    <p className="text-blue-800">
+                      <strong>Mito:</strong> La fibromialgia es una enfermedad psicológica o imaginaria.<br />
+                      <strong>Realidad:</strong> La fibromialgia es una condición médica real, con bases biológicas, que causa dolor y fatiga crónicos.
+                    </p>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-xl">
+                    <p className="text-blue-800">
+                      <strong>Mito:</strong> La fibromialgia solo afecta a mujeres adultas.<br />
+                      <strong>Realidad:</strong> Si bien la fibromialgia es más común en mujeres adultas, también puede afectar a niños y adolescentes de ambos sexos.
+                    </p>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-xl">
+                    <p className="text-blue-800">
+                      <strong>Mito:</strong> Los niños con fibromialgia están simplemente tratando de llamar la atención o tienen problemas de conducta.<br />
+                      <strong>Realidad:</strong> El dolor y la fatiga son reales y pueden afectar significativamente la calidad de vida de los niños.
+                    </p>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-xl">
+                    <p className="text-blue-800">
+                      <strong>Mito:</strong> No hay tratamiento para la fibromialgia infantil.<br />
+                      <strong>Realidad:</strong> Existen tratamientos efectivos, como terapia física, terapia ocupacional y medicamentos, que pueden ayudar a controlar los síntomas y mejorar la calidad de vida de los niños.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Frases de apoyo */}
+            <div className="card-glow p-8 rounded-3xl">
+              <h4 className="text-2xl font-bold text-green-800 mb-6 text-center">Frases de Apoyo para Niños con Fibromialgia</h4>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  "Todo va a estar bien, estoy aquí para ti.",
+                  "Entiendo que te sientes mal, y está bien sentir eso.",
+                  "No tienes que pasar por esto solo, estoy aquí para ayudarte a encontrar una solución.",
+                  "El dolor que sientes es temporal, y aprenderás a superarlo.",
+                  "Recuerda que eres fuerte y puedes con esto.",
+                  "No te rías nunca de las lágrimas de un niño.",
+                  "El dolor tiene un gran poder educativo.",
+                  "Eres importante para mí y te quiero mucho.",
+                  "Confío en ti y sé que puedes lograrlo.",
+                  "No estás solo, estoy aquí para escucharte y ayudarte.",
+                  "Tus sentimientos son válidos y merecen ser escuchados."
+                ].map((frase, index) => (
+                  <div key={index} className="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-xl border border-green-200 hover:border-green-300 transition-colors">
+                    <p className="text-gray-700 text-center leading-relaxed">
+                      "{frase}"
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Enhanced What NOT to do section */}
           <div className="mb-24">
             <div className="text-center mb-16">
