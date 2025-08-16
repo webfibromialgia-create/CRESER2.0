@@ -1863,13 +1863,13 @@ export default function Home() {
                   </div>
                   
                   {/* Imagen */}
-                  <div className="flex-shrink-0">
-                    <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-xl overflow-hidden shadow-lg">
+                  <div className="flex-shrink-0 flex items-center">
+                    <div className="relative w-80 h-[32rem] md:w-96 md:h-[36rem] rounded-xl overflow-hidden shadow-lg">
                       <Image
                         src="/fibromialgia-infantil.jpg"
                         alt="Fibromialgia Infantil - Síntomas y señales de alerta"
-                        width={224}
-                        height={224}
+                        width={320}
+                        height={512}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
                         unoptimized
                         onClick={() => openImageModal("/fibromialgia-infantil.jpg", "Fibromialgia Infantil - CRESER")}
