@@ -8,16 +8,18 @@ export const medicalOrganizationSchema = {
   "url": "https://creser-fibromialgia.vercel.app",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://creser-fibromialgia.vercel.app/logo-creser.jpg",
+    "url": "https://creser-fibromialgia.vercel.app/logo.jpg",
     "width": 1200,
-    "height": 630
+    "height": 630,
+    "caption": "Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia"
   },
   "image": [
     {
       "@type": "ImageObject",
-      "url": "https://creser-fibromialgia.vercel.app/logo-creser.jpg",
+      "url": "https://creser-fibromialgia.vercel.app/logo.jpg",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "caption": "Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia"
     }
   ],
   "address": {
@@ -232,6 +234,27 @@ export const medicalOrganizationSchema = {
     "reviewCount": "150",
     "bestRating": "5",
     "worstRating": "1"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "CRESER",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://creser-fibromialgia.vercel.app/logo.jpg",
+      "width": 1200,
+      "height": 630
+    },
+    "description": "Marca líder en el manejo integral de la fibromialgia en México"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CRESER A.C.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://creser-fibromialgia.vercel.app/logo.jpg",
+      "width": 1200,
+      "height": 630
+    }
   }
 };
 

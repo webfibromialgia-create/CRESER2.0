@@ -11,13 +11,17 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           '/admin/',
           '/private/',
-          '*.json',
-          '*.xml',
         ],
       },
       {
         userAgent: 'Googlebot',
-        allow: '/',
+        allow: [
+          '/',
+          '/logo.jpg',
+          '/logo-creser.jpg',
+          '/logo-creser.svg',
+          '/logo-schema.json',
+        ],
         disallow: [
           '/api/',
           '/_next/',
@@ -27,7 +31,13 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: 'Bingbot',
-        allow: '/',
+        allow: [
+          '/',
+          '/logo.jpg',
+          '/logo-creser.jpg',
+          '/logo-creser.svg',
+          '/logo-schema.json',
+        ],
         disallow: [
           '/api/',
           '/_next/',

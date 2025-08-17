@@ -50,7 +50,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   
-  // Headers de seguridad
+  // Headers de seguridad y SEO
   async headers() {
     return [
       {
@@ -67,6 +67,32 @@ const nextConfig: NextConfig = {
           {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+      {
+        source: '/logo.jpg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+        ],
+      },
+      {
+        source: '/logo-creser.jpg',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
           },
         ],
       },

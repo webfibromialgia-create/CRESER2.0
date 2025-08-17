@@ -30,6 +30,14 @@ export default function RootLayout({
         <meta name="twitter:site" content="@creser_fibromialgia" />
         <meta name="twitter:creator" content="@creser_fibromialgia" />
         
+        {/* Meta tags específicos para el logo */}
+        <meta property="og:image" content="https://creser-fibromialgia.vercel.app/logo.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia" />
+        <meta name="twitter:image" content="https://creser-fibromialgia.vercel.app/logo.jpg" />
+        <meta name="twitter:image:alt" content="Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia" />
+        
         {/* Meta tags para dispositivos móviles */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#6B83BD" />
@@ -37,6 +45,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="CRESER" />
+        
+        {/* Favicon y iconos */}
+        <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+        <link rel="apple-touch-icon" href="/logo.jpg" />
+        <link rel="icon" type="image/svg+xml" href="/logo-creser.svg" />
         
         {/* Meta tags para búsquedas locales */}
         <meta name="business:contact_data:street_address" content="Paseo de las Águilas No. 95" />

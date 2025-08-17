@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "name": "Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia",
+  "description": "Logo oficial de CRESER A.C., organización especializada en el manejo integral de la fibromialgia y fatiga crónica en México",
+  "url": "https://creser-fibromialgia.vercel.app/logo.jpg",
+  "width": 1200,
+  "height": 630,
+  "caption": "Logo de CRESER - Asociación para el Manejo Integral de la Fibromialgia",
+  "thumbnailUrl": "https://creser-fibromialgia.vercel.app/logo.jpg",
+  "uploadDate": "2024-01-01",
+  "contentUrl": "https://creser-fibromialgia.vercel.app/logo.jpg",
+  "encodingFormat": "image/jpeg",
+  "fileSize": "93KB",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CRESER - Centro de Atención Integral para Fibromialgia",
+    "url": "https://creser-fibromialgia.vercel.app"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "CRESER A.C.",
+    "url": "https://creser-fibromialgia.vercel.app"
+  },
+  "license": "https://creser-fibromialgia.vercel.app/terminos-condiciones",
+  "acquireLicensePage": "https://creser-fibromialgia.vercel.app/terminos-condiciones"
+}

@@ -106,5 +106,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    // Archivos de imagen importantes para SEO
+    {
+      url: `${baseUrl}/logo-schema.json`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/google-search-console.html`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
   ];
 }
